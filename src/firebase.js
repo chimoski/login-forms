@@ -75,6 +75,7 @@ const firebaseConfig = {
     auth,
     db,
     signInWithGoogle,
+    signInWithEmailAndPassword,
     logInWithEmailAndPassword,
     registerWithEmailAndPassword,
     sendPasswordReset,

@@ -6,7 +6,7 @@ import {BsCheckLg} from 'react-icons/bs'
 import {FcGoogle} from 'react-icons/fc'
 import {GrFacebook} from 'react-icons/gr'
 import { Link, useNavigate } from "react-router-dom";
-import { auth, logInWithEmailAndPassword, signInWithGoogle } from "../../firebase";
+import { auth, signInWithEmailAndPassword, signInWithGoogle } from "../../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 
 
@@ -20,7 +20,7 @@ export default function LoginPage() {
       // maybe trigger a loading screen
       return;
     }
-    if(email || password === '') alert('please Enter your details')
+    
     if (user) navigate("/");
   }, [user, loading]);
 
@@ -43,7 +43,7 @@ export default function LoginPage() {
             <input className='form-input'
              type="text" value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder='eg .john'/>
+          placeholder='eg .jhn@gmail.com'/>
             <label className='form-label'>Email Address</label>
           </div>
 
@@ -71,7 +71,7 @@ export default function LoginPage() {
 
         <div className='auth'>
         <button className='login-btn'
-        onClick={() => logInWithEmailAndPassword(email, password)}
+        onClick={() => signInWithEmailAndPassword(email, password)}
         >Login</button>
           <p>or log in with</p>
           <div className='icons'>
