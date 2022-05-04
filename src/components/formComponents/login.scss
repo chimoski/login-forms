@@ -1,0 +1,204 @@
+@import '../../App.scss';
+
+body{
+    background-color: $light-bg;
+    font-family: 'Poppins', sans-serif;
+}
+.login-container{
+    background: #FAFDFF;
+    box-shadow: 0px 0px 7px 4px rgba(244, 187, 187, 0.15);
+    width: 500px;
+    height: 700px;
+    margin: 3.25rem auto;
+    padding: 2.5rem 3.16rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .login-header{
+        font-weight: 700;
+        line-height: 48px;  
+        text-align: center;
+        color: $primary-text;
+    }
+}
+.form{
+    position: relative;
+    input {
+        width: 400px;
+        height:62px ;
+        border: 1px solid #272643;
+        border-radius: 8px;
+        padding: 0 1rem;
+        margin-top: 2rem;
+        background:transparent;
+        outline: none;
+    }
+    label{
+        position: absolute;
+        left: .5rem;
+        bottom: 1.2rem; 
+        padding: 0 .5rem;
+        background-color: $light-bg;
+    }
+}
+.form-input:focus{
+    border-color: $accent-color;
+}
+.form-input:focus ~ .form-label,
+.form-input:not(:placeholder-shown).form-input:not(:focus)~.form-label
+{
+    transform: translateY(-2rem);
+    color: $accent-color;
+    transition: transform .5s ease;
+   
+}
+
+
+ .password .form-input:focus{
+        border-color: $primary-text;
+    }
+    .password .form-input:focus ~ .form-label,
+    .form-input:not(:placeholder-shown).form-input:not(:focus)~.form-label
+    {
+        transform: translateY(-2rem);
+        color: $primary-text;
+    }
+
+.eye{
+    position: absolute;
+    right: .5rem;
+    bottom: .5rem;
+    font-size: 24px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.form-check{
+    display: flex;
+    justify-content: space-between;
+    margin-top: .5rem;
+    font-size: 14px;
+    font-weight: 500;
+    p{
+        text-decoration: underline;
+        cursor: pointer;
+        
+    }
+    p:hover,span:hover{
+        color: #222057;
+    }
+    div{
+        display: flex;
+        gap: .5rem;
+        position: relative;
+    }
+    span{
+        cursor: pointer;
+    }
+}
+.checkbox{
+    appearance: none;
+    height: 20px;
+    width: 20px;
+    background: #FAFDFF;
+    border: 1px solid #4C4A82;
+    cursor: pointer;
+
+}
+.checked{
+    position: absolute;
+    top: .3rem;
+    left: .2rem;
+    cursor: pointer;
+}
+.auth{
+    margin: 4rem 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    p{
+        font-size: 14px;
+        font-weight: 500;
+    }
+    div{
+        display: flex;
+        gap: 1rem;
+    }
+    .login-btn{
+        background: #F53838;
+        box-shadow: 0px 3px 25px rgba(244, 187, 187, 0.75);
+        width: 165px;
+        height: 52px;
+        border: transparent;
+        color: #fff;
+        font-size: 20px;
+    }
+    .login-btn:hover{
+       background-color:#f95252 ;
+       transform: scale(0.98);
+    }
+   
+    .signup-btn{
+        border: none;
+        color: #F53838;
+        background: transparent;
+        
+    }
+}
+.icons{
+    font-size: 1.5rem;
+    
+}
+
+.login-router{
+    display: flex;
+    gap: 5rem;
+
+   button{
+    border: none;
+    background: none;
+    font-size: 18px;
+    color: $primary-text;    
+    font-weight: 700;  
+    margin: 1rem 0;
+    }
+    .login-router-active{
+        border-bottom: 3px solid $accent-color;
+    }
+    .login-router-inactive{
+        opacity: .5;
+    }
+}
+.show{
+    display: block;
+}
+
+.remove{
+    display: none;
+}
+
+
+.signup-btn:hover{
+    color:#f95252 ;
+}
+.sign-up-btn{
+    border-radius: 88px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #F53838;
+    box-shadow: 0px 3px 25px rgba(244, 187, 187, 0.75);
+    width: 165px;
+    height: 52px;
+    border: transparent;
+    color: #fff;
+    font-size: 20px;
+    margin: 1.5rem auto;
+}
+
