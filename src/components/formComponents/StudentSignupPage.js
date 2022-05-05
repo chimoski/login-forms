@@ -20,15 +20,33 @@ export default function StudentSignupPage(props) {
   const [user, loading, error] = useAuthState(auth);
   const history = useNavigate();
 
-  const register = () => {
-    if (!email) alert("Please enter email");
-    if(confirmPassword!==password) alert("Please enter email")
-    registerWithEmailAndPassword( email, password);
+  const register = (e) => {
+    e.preventDefault()
+    console.log("hola")
+    let formErrors = false
+    console.log(formErrors)
+
+    if (!email) {
+      alert("Please enter email"); 
+      formErrors = true
+    }
+    console.log(email)
+    console.log(formErrors)
+
+    if(confirmPassword!==password) {
+      alert("Please make sure that the passwords match");
+      formErrors = true
+    }
+
+    console.log(formErrors)
+    if (!formErrors) {
+      console.log(registerWithEmailAndPassword( email, password))
+    }
   };
 
   useEffect(() => {
     if (loading) return;
-    if (user) history.replace("/login");
+    if (user) history("/signup/student", {replace: true});
   }, [user, loading]);
 
 
@@ -55,7 +73,10 @@ export default function StudentSignupPage(props) {
         e.preventDefault();
        props.instructor()
     }
-
+      const checkAuth = (e) => {
+          e.preventDefault()
+          console.log("submitted")
+      }
   return (
    <>
      <div >
@@ -65,7 +86,7 @@ export default function StudentSignupPage(props) {
             <button className='login-router-active' onClick={toInstructor}>Student</button>
             <button className='login-router-inactive' onClick={toStudent}>Instructor</button>
         </div>
-        <form>
+        <form onSubmit={(e) => checkAuth(e)}>
           <div className='username form'>
             <input className='form-input'
              type="text" placeholder='eg .john'
@@ -100,7 +121,8 @@ export default function StudentSignupPage(props) {
             </button>
           </div>
         <div className='auth'>
-        <Link onClick={register} to={'/signup/student'} className='login-btn sign-up-btn'>Sign Up</Link>
+        {/* <Link onClick={register} to={'/signup/student'} className='login-btn sign-up-btn'>Sign Up</Link> */}
+        <button type='submit' onClick={register} className='login-btn sign-up-btn'>Sign up</button>
           <p>or Sign Up with</p>
           <div className='icons'>
             <FcGoogle onClick={signInWithGoogle} style={{cursor:'pointer'}} />

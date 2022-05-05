@@ -6,7 +6,7 @@ import {BsCheckLg} from 'react-icons/bs'
 import {FcGoogle} from 'react-icons/fc'
 import {GrFacebook} from 'react-icons/gr'
 import { Link, useNavigate } from "react-router-dom";
-import { auth, signInWithEmailAndPassword, signInWithGoogle } from "../../firebase";
+import { auth, logInWithEmailAndPassword, signInWithGoogle,signInWithPopup,getRedirectResult } from "../../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 
 
@@ -26,7 +26,9 @@ export default function LoginPage() {
 
 
   const [showPassword, setShowPassword] =useState(false);
-  const[check, setCheck] = useState(false)
+  const[check, setCheck] = useState(true)
+ 
+
   const togglePassword =(e)=>{
     e.preventDefault();
     setShowPassword(!showPassword);
@@ -42,8 +44,8 @@ export default function LoginPage() {
           <div className='username form'>
             <input className='form-input'
              type="text" value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder='eg .jhn@gmail.com'/>
+          onChange={(e) => setEmail(e.target.value) }
+          placeholder='eg .john@gmail.com' name="email"/>
             <label className='form-label'>Email Address</label>
           </div>
 
@@ -53,7 +55,7 @@ export default function LoginPage() {
               value={password}
           onChange={(e) => setPassword(e.target.value)} 
           placeholder='8 + characters'/>
-            <label className='form-label'>Password</label>
+            <label  className='form-label'>Password</label>
             <button onClick={togglePassword} className='eye'>
              {showPassword ?
             <AiFillEye />:<AiFillEyeInvisible />}
@@ -66,17 +68,21 @@ export default function LoginPage() {
               {check?< BsCheckLg onClick={checked} className='checked' /> : ''}
                <span onClick={checked}>remember me</span>
               </div>
-            <p>Forget Password?</p>
+            <p><Link to={"/reset-password"} > Forgot password? </Link> </p>
           </div>
 
         <div className='auth'>
         <button className='login-btn'
-        onClick={() => signInWithEmailAndPassword(email, password)}
+        onClick={(e) => {e.preventDefault(); 
+          logInWithEmailAndPassword(email, password, check);
+          setEmail('');
+          setPassword('');
+        }}
         >Login</button>
           <p>or log in with</p>
           <div className='icons'>
             <FcGoogle style={{cursor:'pointer'}} onClick={signInWithGoogle} />
-            <GrFacebook  style={{color: '#395185',cursor:'pointer'}}/>
+            <GrFacebook onClick={getRedirectResult}  style={{color: '#395185',cursor:'pointer'}}/>
           </div>
          <div>
          <p>Don't you have an account? </p>

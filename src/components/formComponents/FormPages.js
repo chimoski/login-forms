@@ -5,6 +5,7 @@ import SignUpPage from './SignUpPage';
 import Home from '../Home';
 import StudentDetails from './StudentPersonalDetails';
 import InstructorDetails from './InstructorPersonalDetails';
+import ResetPassword from './resetPassword';
 export default function FormPages() {
   return (
       <>
@@ -15,6 +16,7 @@ export default function FormPages() {
           <Route path='/signup' element={<SignUpPage/>} />
           <Route path='/signup/student' element={<StudentDetails/>} />
           <Route path='/signup/instructor' element={<InstructorDetails/>} />
+          <Route path="/reset-password" element={<ResetPassword/> } />
         </Routes>
       </Router>
       </>

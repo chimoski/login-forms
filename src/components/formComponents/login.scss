@@ -38,8 +38,12 @@ body{
         position: absolute;
         left: .5rem;
         bottom: 1.2rem; 
-        padding: 0 .5rem;
+        padding: 0 1rem;
         background-color: $light-bg;
+        pointer-events: none;
+        &:hover {
+            cursor: text;
+        }
     }
 }
 .form-input:focus{
@@ -51,6 +55,7 @@ body{
     transform: translateY(-2rem);
     color: $accent-color;
     transition: transform .5s ease;
+    font-size: 14px;
    
 }
 
@@ -63,6 +68,8 @@ body{
     {
         transform: translateY(-2rem);
         color: $primary-text;
+        font-size: 14px;
+
     }
 
 .eye{

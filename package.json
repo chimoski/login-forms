@@ -41,5 +41,17 @@
   },
   "devDependencies": {
     "sass": "^1.51.0"
-  }
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chimoski/login-forms.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chimoski/login-forms/issues"
+  },
+  "homepage": "https://github.com/chimoski/login-forms#readme",
+  "description": ""
 }
